@@ -10,6 +10,7 @@ import MapKit
 
 struct LocationsView: View {
     @EnvironmentObject var viewModel: LocationsViewModel
+    let maxWidthForiPad: CGFloat = 768
     
     var body: some View {
         ZStack {
@@ -19,6 +20,7 @@ struct LocationsView: View {
             VStack(spacing: 0) {
                 header
                     .padding()
+                    .frame(maxWidth: maxWidthForiPad)
                 Spacer()
                 locationsPreviewStack
             }
@@ -86,6 +88,8 @@ extension LocationsView {
                             color: .black.opacity(0.3),
                             radius: 20)
                         .padding()
+                        .frame(maxWidth: maxWidthForiPad)
+                        .frame(maxWidth: .infinity)
                         .transition(.asymmetric(
                             insertion: .move(edge: .trailing),
                             removal: .move(edge: .leading)))
